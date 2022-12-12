@@ -1,6 +1,6 @@
 import { ChangeEvent, FC, useReducer } from 'react';
 import { TypedUseSelectorHook, useDispatch, useSelector as useReduxSelector } from 'react-redux';
-import { fetchPersonajesThunk } from '../../actions/personajes.action';
+import { fetchPersonajesThunk } from '../../actions/personajes.actions';
 import { IRootState } from '../../store/store';
 import './filtros.css';
 

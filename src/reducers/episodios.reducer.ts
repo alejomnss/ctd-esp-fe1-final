@@ -1,6 +1,6 @@
 import { Reducer } from "@reduxjs/toolkit";
 import Episodio from "../types/episodio.types";
-import {EpisodiosAcciones} from "../actions/episodios.action"
+import {EpisodiosAcciones} from "../actions/episodios.actions"
 
 
 

@@ -3,7 +3,7 @@ import GrillaPersonajes from "../componentes/personajes/grilla-personajes.compon
 import Paginacion from "../componentes/paginacion/paginacion.componente";
 import React, { FC } from "react";
 import { useDispatch } from "react-redux";
-import { fetchPersonajesThunk } from "../actions/personajes.action";
+import { fetchPersonajesThunk } from "../actions/personajes.actions";
 
 /**
  * Esta es la pagina principal. Aquí se debera ver el panel de filtros junto con la grilla de personajes.

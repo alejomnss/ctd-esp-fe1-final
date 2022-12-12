@@ -3,10 +3,12 @@ import { TypedUseSelectorHook, useSelector as useReduxSelector } from "react-red
 import thunk from "redux-thunk";
 import personajesReducer from "../reducers/personajes.reducer";
 import episodiosReducer from "../reducers/episodios.reducer";
+import favoritosReducer from "../reducers/favoritos.reducer";
 
 const rootReducer = combineReducers({
     personajes: personajesReducer,
     episodios: episodiosReducer,
+    favoritos: favoritosReducer,
 
 });
 

@@ -1,5 +1,5 @@
 import { Reducer } from "@reduxjs/toolkit";
-import { PersonajesAcciones } from "../actions/personajes.action";
+import { PersonajesAcciones } from "../actions/personajes.actions";
 import InfoPagina from "../types/infoPagina.types";
 import Personaje from "../types/personaje.types"
 

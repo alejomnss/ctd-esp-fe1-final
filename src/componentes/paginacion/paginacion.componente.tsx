@@ -1,7 +1,7 @@
 import { FC } from 'react';
 import { TypedUseSelectorHook, useDispatch, useSelector as useReduxSelector } from 'react-redux';
 import { IRootState } from '../../store/store';
-import { cambiarPaginaThunk } from '../../actions/personajes.action';
+import { cambiarPaginaThunk } from '../../actions/personajes.actions';
 import './paginacion.css';
 
 /**
