@@ -75,6 +75,7 @@ export const cambiarPaginaThunk = (url: string): FetchPersonajesThunkAccion => {
             const [personajes, info] = await cambiarPagina(url);
             dispatch(getPersonajesExitoso(personajes, info));
         } catch (e) {
+            dispatch(getPersonajesError(e))
         }
     }
 }

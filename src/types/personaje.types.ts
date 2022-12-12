@@ -1,4 +1,4 @@
-interface Character {
+interface Personaje {
     id: number;
     name: string;
     status: string;
@@ -12,4 +12,4 @@ interface Character {
     episode: string[];
 }
 
-export default Character;
+export default Personaje;

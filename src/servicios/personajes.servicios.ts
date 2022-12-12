@@ -1,6 +1,13 @@
 import InfoPagina from "../types/infoPagina.types";
 import Personaje from "../types/personaje.types"
 
+/**
+ * 
+ * @param {string | undefined} nombre
+ * @returns {Promise<[Personaje[], InfoPagina, number] | [any, any, number]>}
+ */
+
+
 export const getPersonajesAPI = async (nombre?: string): Promise<[Personaje[], InfoPagina, number] | [any, any, number]> => {
     let nombreParametro = "";
     if (nombre !== "" && nombre !== undefined) {
