@@ -1,9 +1,8 @@
-import React, { FC } from "react";
+import { FC } from "react";
 import { TypedUseSelectorHook, useDispatch, useSelector as useReduxSelector } from "react-redux";
 import GrillaPersonajes from "../componentes/personajes/grilla-personajes.componente";
 import TarjetaPersonaje from "../componentes/personajes/tarjeta-personaje.componente";
 import { IRootState } from "../store/store";
-import Personaje from "../types/personaje.types";
 import { favoritaClean } from "../actions/favoritas.actions";
 
 /**
@@ -28,12 +27,8 @@ const PaginaFavoritos: FC = () => {
             {favoriteMap.size === 0 ? (
                 <>No hay Favoritos</>
             ) : (
-                <div style={{
-                    display: "grid",
-                    justifyItems: "Center",
-                }}
-                >
-                    {Array.from(favoriteMap.values()).map((personaje, index) => {
+                <div>
+                    {Array.from(favoriteMap.values()).map((personaje) => {
                         return (
                             <div key={personaje.id}>
                                 <TarjetaPersonaje personaje={personaje} />

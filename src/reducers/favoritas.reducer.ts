@@ -24,7 +24,9 @@ const favoritasReducer: Reducer<FavoritasState, FavoritasAcciones> = (state = in
                 map.set(personaje.id, personaje);
             });
             
-            state.favoritesMapa.has(action.personaje.id) ? map.delete(action.personaje.id) : map.set(action.personaje.id, action.personaje);
+            state.favoritesMapa.has(action.personaje.id)
+                ? map.delete(action.personaje.id)
+                : map.set(action.personaje.id, action.personaje);
             return {
                 ...state,
                 favoritesMapa: map,
