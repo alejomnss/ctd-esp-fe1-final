@@ -1,5 +1,5 @@
 import { FC } from 'react';
-import { TypedUseSelectorHook, useDispatch, useSelector as useReducerSelector } from 'react-redux';
+import { TypedUseSelectorHook, useDispatch, useSelector as useReduxSelector } from 'react-redux';
 import { IRootState } from '../../store/store';
 import { cambiarPaginaThunk } from '../../actions/personajes.action';
 import './paginacion.css';
@@ -10,11 +10,11 @@ import './paginacion.css';
  */
 
 const Paginacion: FC = () => {
-    const useSelector: TypedUseSelectorHook<IRootState> = useReducerSelector;
+    const useSelector: TypedUseSelectorHook<IRootState> = useReduxSelector;
     const dispatch = useDispatch();
 
     const infoPagina = useSelector((state) => state.personajes.infoPagina);
-    const { count, proximo, paginas, previo } = infoPagina
+    const { count, proximo, paginas, previo } = infoPagina;
     
     const paginaPrevia = () => {
         dispatch(cambiarPaginaThunk(previo));
