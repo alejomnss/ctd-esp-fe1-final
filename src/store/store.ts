@@ -2,7 +2,7 @@ import { applyMiddleware, combineReducers, compose, createStore } from "@reduxjs
 import { TypedUseSelectorHook, useSelector as useReduxSelector } from "react-redux";
 import thunk from "redux-thunk";
 import personajesReducer from "../reducers/personajes.reducer";
-import episodiosReducer from "../reducers/episodios.reducer"
+import episodiosReducer from "../reducers/episodios.reducer";
 
 const rootReducer = combineReducers({
     personajes: personajesReducer,

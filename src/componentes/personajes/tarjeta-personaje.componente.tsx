@@ -23,7 +23,7 @@ const TarjetaPersonaje: FC<{ personaje: Personaje }> = ({ personaje }) => {
             <img src={personaje.image} onClick={redirigirPaginaDetalle} alt={ personaje.name}/>
             <div className="tarjeta-personaje-body">
                 <span>{personaje.name}</span>
-                <BotonFavorito personaje={personaje} />
+                {/* <BotonFavorito personaje={personaje} />*/}
             </div>
         </div>
 
