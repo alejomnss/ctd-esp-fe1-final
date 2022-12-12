@@ -17,7 +17,7 @@ const TarjetaEpisodio: FC<{ episodio: Episodio }> = ({ episodio }) => {
         < div className="tarjeta-episodio" >
             <h4>{episodio.name}</h4>
             <div>
-                <span>{episodio.episodio}</span>
+                <span>{episodio.episode}</span>
                 <span>Lanzado el: {episodio.air_date}</span>
             </div>
         </div>

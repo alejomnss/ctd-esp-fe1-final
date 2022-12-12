@@ -14,20 +14,20 @@ const Paginacion: FC = () => {
     const dispatch = useDispatch();
 
     const infoPagina = useSelector((state) => state.personajes.infoPagina);
-    const { count, proximo, paginas, previo } = infoPagina;
+    const { count, next, pages, prev } = infoPagina;
     
     const paginaPrevia = () => {
-        dispatch(cambiarPaginaThunk(previo));
+        dispatch(cambiarPaginaThunk(prev));
     };
 
     const paginaProxima = () => {
-        dispatch(cambiarPaginaThunk(proximo));
+        dispatch(cambiarPaginaThunk(next));
     };
     
     return (
         <div className="paginacion">
-            <button onClick={paginaPrevia} disabled={previo === null ? true : false} className={"primary"}>Anterior</button>
-            <button onClick={paginaProxima} disabled={proximo === null ? true : false} className={"primary"}>Siguiente</button>
+            <button onClick={paginaPrevia} disabled={prev === null ? true : false} className={"primary"}>Anterior</button>
+            <button onClick={paginaProxima} disabled={next === null ? true : false} className={"primary"}>Siguiente</button>
         </div>
     );
 };

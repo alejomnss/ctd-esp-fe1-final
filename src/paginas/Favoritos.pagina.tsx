@@ -1,4 +1,10 @@
+import React, { FC } from "react";
+import { TypedUseSelectorHook, useDispatch, useSelector as useReduxSelector } from "react-redux";
 import GrillaPersonajes from "../componentes/personajes/grilla-personajes.componente";
+import TarjetaPersonaje from "../componentes/personajes/tarjeta-personaje.componente";
+import { IRootState } from "../store/store";
+import Personaje from "../types/personaje.types";
+import { favoritaClean } from "../actions/favoritas.actions";
 
 /**
  * Esta es la pagina de favoritos. Aquí se deberan ver todos los personajes marcados como favoritos
@@ -6,16 +12,38 @@ import GrillaPersonajes from "../componentes/personajes/grilla-personajes.compon
  * Uso: 
  * ``` <PaginaFavoritos /> ```
  * 
- * @returns la pagina de favoritos
+ * @returns {React.ReactElement}
  */
-const PaginaFavoritos = () => {
-    return <div className="container">
+const PaginaFavoritos: FC = () => {
+    const useSelector: TypedUseSelectorHook<IRootState> = useReduxSelector;
+    const favoriteMap = useSelector((state) => state.favoritas.favoritesMapa);
+    const dispatch = useDispatch();
+
+    return (
+    <div className="container">
         <div className="actions">
             <h3>Personajes Favoritos</h3>
-            <button className="danger">Test Button</button>
+            <button className="danger" onClick={() => dispatch(favoritaClean())}>Limpiar Favoritos</button>
         </div>
-        <GrillaPersonajes />
-    </div>
+            {favoriteMap.size === 0 ? (
+                <>No hay Favoritos</>
+            ) : (
+                <div style={{
+                    display: "grid",
+                    justifyItems: "Center",
+                }}
+                >
+                    {Array.from(favoriteMap.values()).map((personaje, index) => {
+                        return (
+                            <div key={personaje.id}>
+                                <TarjetaPersonaje personaje={personaje} />
+                            </div>
+                        );
+                    })}
+                </div>
+            )}
+        </div>
+    )
 }
 
-export default PaginaFavoritos
+export default PaginaFavoritos;

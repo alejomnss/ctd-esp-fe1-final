@@ -2,11 +2,12 @@ import "./Detalle.css";
 import BotonFavorito from "../componentes/botones/boton-favorito.componente";
 import TarjetaEpisodio from "../componentes/episodios/tarjeta-episodio.componente";
 import React, { FC, useEffect, useState } from "react";
-import { TypedUseSelectorHook, useDispatch, useSelector as useReducerSelector } from "react-redux";
+import { TypedUseSelectorHook, useDispatch, useSelector as useReduxSelector } from "react-redux";
 import { IRootState } from "../store/store";
 import { useLocation } from "react-router-dom";
 import Personaje from "../types/personaje.types";
 import Episodio from "../types/episodio.types";
+import { getEpisodiosThunk } from "../actions/episodios.actions";
 
 /**
  * Esta es la pagina de detalle. Aqui se puede mostrar la vista sobre el personaje seleccionado junto con la lista de episodios en los que aparece
@@ -21,7 +22,7 @@ import Episodio from "../types/episodio.types";
  * @returns {React.ReactElement}la pagina de detalle
  */
 const PaginaDetalle: FC = () => {
-    const useSelector: TypedUseSelectorHook<IRootState> = useReducerSelector;
+    const useSelector: TypedUseSelectorHook<IRootState> = useReduxSelector;
     const { episodios, status } = useSelector((state) => state.episodios);
     const dispatch = useDispatch();
 
@@ -32,11 +33,15 @@ const PaginaDetalle: FC = () => {
     const [arrayEpisodioID, setArrayEpisodioID] = useState<(string | undefined)[]>([]);
 
     useEffect(() => {
-        const array: (string | undefined)[] = personaje.episode.map((episodio) => {
-            return episodio.split("/").at(-1);
+        const array: (string | undefined)[] = personaje.episode.map((episode) => {
+            return episode.split("/").at(-1);
         });
         setArrayEpisodioID(array);
-    }, [arrayEpisodioID])
+    }, [personaje.episode])
+
+    useEffect(() => {
+        dispatch(getEpisodiosThunk(arrayEpisodioID));
+    }, [arrayEpisodioID]);
 
 
     return (
@@ -78,4 +83,4 @@ const PaginaDetalle: FC = () => {
 };
             
 
-export default PaginaDetalle
+export default PaginaDetalle;

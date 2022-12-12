@@ -1,8 +1,8 @@
 interface InfoPagina {
     count: number;
-    paginas: number;
-    proximo: string;
-    previo: string;
+    pages: number;
+    next: string;
+    prev: string;
 }
 
 export default InfoPagina;

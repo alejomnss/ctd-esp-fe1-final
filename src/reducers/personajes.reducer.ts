@@ -15,9 +15,16 @@ const initialState: PersonajesState = {
     status: "IDLE",
     personajes: [],
     query: "",
-    infoPagina: { count: 0, paginas: 0, proximo: "", previo: "" },
+    infoPagina: { count: 0, pages: 0, next: "", prev: "" },
     error: null,
 }
+
+/**
+ * 
+ * @param {State} state 
+ * @param {DataStore.Reducer<PersonajesState, PersonajesAcciones>} action 
+ * @returns {State}
+ */
 
 const personajesReducer: Reducer<PersonajesState, PersonajesAcciones> = (state = initialState, action): PersonajesState => {
     switch (action.type) {

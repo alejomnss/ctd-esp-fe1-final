@@ -1,5 +1,4 @@
-import { Action, ActionCreator } from "@reduxjs/toolkit";
-import { ThunkAction } from "redux-thunk";
+import { Action, ActionCreator, ThunkAction} from "@reduxjs/toolkit";
 import { cambiarPagina, getPersonajesAPI } from "../servicios/personajes.servicios";
 import { IRootState } from "../store/store";
 import InfoPagina from "../types/infoPagina.types";
