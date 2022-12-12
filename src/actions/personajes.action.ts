@@ -45,7 +45,10 @@ const getPersonajesError: ActionCreator<getPersonajesErrorAccion> = (mensaje: st
 };
 
 
-export type PersonajesAcciones = | ReturnType<typeof getPersonajes> | ReturnType<typeof getPersonajesExitoso> | ReturnType<typeof getPersonajesError>;
+export type PersonajesAcciones =
+    | ReturnType<typeof getPersonajes>
+    | ReturnType<typeof getPersonajesExitoso>
+    | ReturnType<typeof getPersonajesError>;
 
 interface FetchPersonajesThunkAccion extends ThunkAction<void, IRootState, unknown, PersonajesAcciones> { }
 

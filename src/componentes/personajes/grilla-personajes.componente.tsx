@@ -1,5 +1,5 @@
 import React, { FC, useEffect } from 'react';
-import { TypedUseSelectorHook, useDispatch, useSelector as useReducerSelector } from 'react-redux';
+import { TypedUseSelectorHook, useDispatch, useSelector as useReduxSelector } from 'react-redux';
 import { fetchPersonajesThunk } from '../../actions/personajes.action';
 import { IRootState } from '../../store/store';
 import './grilla-personajes.css';
@@ -12,7 +12,7 @@ import TarjetaPersonaje from './tarjeta-personaje.componente';
  */
 const GrillaPersonajes: FC = () => {
 
-    const useSelector: TypedUseSelectorHook<IRootState> = useReducerSelector;
+    const useSelector: TypedUseSelectorHook<IRootState> = useReduxSelector;
     const { status, personajes } = useSelector((state) => state.personajes);
     const dispatch = useDispatch();
 
@@ -20,8 +20,8 @@ const GrillaPersonajes: FC = () => {
         dispatch(fetchPersonajesThunk(""));
     }, [dispatch]);
 
-    if (status == "LOADING") return <div>Cargando Personajes de Rick & Morty ...</div>;
-    if (status == "FAILED") return <div>Fallo la carga de personajes, intenta de nuevo</div>;
+    if (status === "LOADING") return <div>Cargando Personajes de Rick & Morty ...</div>;
+    if (status === "FAILED") return <div>Fallo la carga de personajes, intenta de nuevo</div>;
     if (!personajes || personajes.length === 0) return <></>;
 
     return (
